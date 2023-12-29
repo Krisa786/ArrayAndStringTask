@@ -9,17 +9,50 @@
     <script>
   
 
-let str = "krirdaa"
-let output = "";
+// let str = "krirda";
+// let output = "";
 
-for (let i = 0; i < str.length; i++) {
-  let Char = str[i];
-  if (str.indexOf(Char) === i && str.lastIndexOf(Char) === i) {
-    output +=Char;
-  }
-}
+// for (let i = 0; i < str.length; i++) {
+//   let Char = str[i];
+//   if ((str.indexOf(Char) === i) == (str.lastIndexOf(Char) === i)) {
+//     output +=Char;
+//   }
+// }
 
-console.log(output);
+// console.log(output);
+function newString(input) {
+        console.log(input);
+        let i = 0;
+        let temp = input[0];
+        let arr = [];
+        let result = "";
+        for (let j = 0; j <= input.length - 1; j++) {
+          if (temp != input[j]) {
+            arr.push(input.slice(i, j));
+            i = j;
+            temp = input[j];
+            j--;
+          } else if (j == input.length - 1) {
+            arr.push(input.slice(i, j + 1));
+            i = j;
+            temp = input[j];
+          }
+        }
+        console.log(arr);
+
+        arr.forEach((z) => {
+          if (z.length % 2 != 0) {
+            result += z[0];
+          }
+        });
+        return result;
+      }
+
+      let x = "hjhjgyfhgj";
+      x = x.split('').sort().join('');
+    //   console.log(x);
+      let processedString = newString(x);
+      console.log(processedString); 
 
 
     </script>
